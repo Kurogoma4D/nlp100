@@ -1,5 +1,9 @@
 def read_names() -> list[str]:
-    with open('./popular-names.txt') as f:
+    return read_file('./popular-names.txt')
+
+
+def read_file(name: str) -> list[str]:
+    with open(name) as f:
         lines = f.readlines()
 
     return lines
