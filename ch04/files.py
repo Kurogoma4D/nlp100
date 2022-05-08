@@ -1,3 +1,6 @@
+import itertools
+
+
 def read_file(name: str) -> list[str]:
     with open(name) as f:
         lines = f.readlines()
@@ -29,3 +32,9 @@ def read_neko() -> list[list[dict[str, str]]]:
         statement.append(read_line(l))
 
     return result
+
+
+def flatten_neko() -> list[dict[str, str]]:
+    neko = read_neko()
+
+    return list(itertools.chain.from_iterable(list(filter(lambda x: len(x) != 0, neko))))
